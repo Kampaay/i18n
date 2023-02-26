@@ -106,13 +106,13 @@ function deepCopy(src: Record<string, any>, des: Record<string, any>) {
   }
 }
 
-async function loadMessage(context: NuxtApp, loader: () => Promise<any>) {
+async function loadMessage(context: NuxtApp, loader: () => Promise<any>, locale: Locale) {
   let message: LocaleMessages<DefineLocaleMessage> | null = null
   try {
     const getter = await loader().then(r => r.default || r)
     // TODO: support for js, cjs, mjs
     if (isFunction(getter)) {
-      console.error(formatMessage('Not support executable file (e.g. js, cjs, mjs)'))
+      message = getter(context, locale)
     } else {
       message = getter
     }
@@ -140,7 +140,7 @@ export async function loadLocale(
         if (loadedMessages.has(key)) {
           message = loadedMessages.get(key)
         } else {
-          message = await loadMessage(context, load)
+          message = await loadMessage(context, load, locale)
           if (message != null) {
             loadedMessages.set(key, message)
           }
@@ -156,7 +156,7 @@ export async function loadLocale(
           if (loadedMessages.has(key)) {
             message = loadedMessages.get(key)
           } else {
-            message = await loadMessage(context, load)
+            message = await loadMessage(context, load, locale)
             if (message != null) {
               loadedMessages.set(key, message)
             }
@@ -184,7 +184,7 @@ export async function loadAdditionalLocale(
   if (process.server || process.dev || !loadedAdditionalLocales.includes(locale)) {
     const additionalLoaders = additionalMessages[locale] || []
     for (const additionalLoader of additionalLoaders) {
-      const message = await loadMessage(context, additionalLoader)
+      const message = await loadMessage(context, additionalLoader, locale)
       if (message != null) {
         merger(locale, message)
         loadedAdditionalLocales.push(locale)

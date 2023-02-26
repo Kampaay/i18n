@@ -3,6 +3,7 @@ import type { NuxtApp } from 'nuxt/dist/app/index'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  ssr: false,
   modules: [Module1, '@nuxtjs/i18n'],
 
   vite: {
@@ -44,6 +45,14 @@ export default defineNuxtConfig({
         file: 'ja.json',
         domain: 'mydomain.com',
         name: 'Japanses'
+      },
+      {
+        code: 'it',
+        iso: 'it-IT',
+        // file: 'it.json',
+        file: 'it.ts',
+        domain: 'mydomain.it',
+        name: 'Italiano'
       },
       {
         code: 'fr',

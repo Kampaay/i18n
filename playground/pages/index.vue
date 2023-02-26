@@ -42,12 +42,25 @@ definePageMeta({
     }
   }
 })
+
+const handler = () => {
+  console.log('handler', t('hello', { name: 'nuxt3' }))
+}
 </script>
 
 <template>
   <div>
     <h1>Demo: Nuxt 3</h1>
-    <h2>{{ $t('hello', { name: 'nuxt3' }) }}</h2>
+    <h2 @click="handler">interpolation: {{ $t('hello', { name: 'nuxt3' }) }}</h2>
+    <h2>literalInterpolation: {{ $t('literalInterpolation') }}</h2>
+    <h2>pluralization (0): {{ $t('pluralization', 0) }}</h2>
+    <h2>pluralization (1): {{ $t('pluralization', 1) }}</h2>
+    <!-- <h2>pluralization (5): {{ $t('literalInterpolation', 5, { count: 5 }) }}</h2> -->
+    <h2>pluralization (5): {{ $t('pluralization', 5, { count: 5 }) }}</h2>
+    <i18n-t keypath="term" tag="label" for="tos">
+      <a href="www.google.com" target="_blank">{{ $t('tos') }}</a>
+    </i18n-t>
+    <h3>scampa: {{ $t('foo', { name: 'scampa' }) }}</h3>
     <h2>Pages</h2>
     <nav>
       <NuxtLink :to="localePath('/')">Home</NuxtLink> | <NuxtLink :to="localePath({ name: 'about' })">About</NuxtLink> |

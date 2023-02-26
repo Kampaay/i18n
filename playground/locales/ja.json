@@ -9,5 +9,10 @@
     }
   },
   "welcome": "ようこそ",
-  "hello": "こんにちは {name} ！"
+  "hello": "こんにちは {name} ！",
+  "literalInterpolation": "こんにちは del carattere speciale {'|'} funziona come atteso",
+  "tos": "こんにちは di servizio",
+  "term": "こんにちは xxx {0}.",
+  "pluralization": "こんにちは apples | こんにちは apple | {count} こんにちは apples",
+  "linked": "@:welcome @:tos"
 }

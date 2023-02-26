@@ -18,7 +18,8 @@
 .output
 .eslintcache
 
-dist
+# disabled to allow installation in our client app
+# dist
 temp
 coverage
 node_modules
