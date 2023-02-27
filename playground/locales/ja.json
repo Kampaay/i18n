@@ -14,5 +14,5 @@
   "tos": "こんにちは di servizio",
   "term": "こんにちは xxx {0}.",
   "pluralization": "こんにちは apples | こんにちは apple | {count} こんにちは apples",
-  "linked": "@:welcome @:tos"
+  "linked": "@:tos にち"
 }

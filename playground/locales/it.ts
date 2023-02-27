@@ -11,6 +11,7 @@ export default (_context: NuxtApp, _locale: string) => {
       literalInterpolation: `Interpolazione del carattere speciale {'|'} funziona come atteso`,
       tos: 'Termini di servizio',
       term: 'Accetto xxx {0}.',
+      linked: '@:tos linkato',
       pluralization: 'no apples | one apple | {count} apples',
       hello: 'mammmmmmmmaronnlocarm {name} !'
     })

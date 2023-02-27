@@ -57,6 +57,7 @@ const handler = () => {
     <h2>pluralization (1): {{ $t('pluralization', 1) }}</h2>
     <!-- <h2>pluralization (5): {{ $t('literalInterpolation', 5, { count: 5 }) }}</h2> -->
     <h2>pluralization (5): {{ $t('pluralization', 5, { count: 5 }) }}</h2>
+    <h2>linked: {{ $t('linked') }}</h2>
     <i18n-t keypath="term" tag="label" for="tos">
       <a href="www.google.com" target="_blank">{{ $t('tos') }}</a>
     </i18n-t>
